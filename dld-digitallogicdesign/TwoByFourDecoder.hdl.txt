@@ -1,0 +1,11 @@
+CHIP TwoByFourDecoder{
+	In a,b;
+	Out d0,d1,d2,d3;
+	PARTS:
+		Not(in=a,out=nota);
+		Not(in=b,out=notb);
+		And(a=nota,b=notb,out=d0);
+		And(a=nota,b=b,out=d1);
+		And(a=a,b=notb,out=d2);
+		And(a=a,b=b,out=d3);
+}

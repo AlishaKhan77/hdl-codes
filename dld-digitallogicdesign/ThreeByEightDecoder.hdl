@@ -1,0 +1,20 @@
+CHIP ThreeByEightDecoder{
+	In a,b,c;
+	Out d0,d1,d2,d3,d4,d5,d6,d7;
+	PARTS:
+		Not(in=a,out=nota);
+
+		Not(in=b,out=notb);
+		Not(in=c,out=notc);
+		And(a=nota,b=notb,c=notc,out=d0);
+		And(a=nota,b=notb,c=c,out=d1);
+		And(a=nota,b=b,c=notc,out=d2);
+		And(a=nota,b=b,c=c,out=d3);
+
+		Not(in=b,out=notb);
+		Not(in=c,out=notc);
+		And(a=a,b=notb,c=notc,out=d4);
+		And(a=a,b=notb,c=c,out=d5);
+		And(a=a,b=b,c=notc,out=d6);
+		And(a=a,b=b,c=c,out=d7);
+}
